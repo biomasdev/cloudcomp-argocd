@@ -30,7 +30,7 @@ spec:
         claimName: project2-pv-matheusaluno-claim
   containers:
     - name: cloudcomp-recommendation
-      image: biomasdev/cloudcomp-recommendation:0.23
+      image: biomasdev/cloudcomp-recommendation:0.24
       ports:
         - containerPort: 5000
           name: http-predict
@@ -41,7 +41,7 @@ spec:
         - name: REACT_APP_FRONTEND_PORT
           value: "30242"
     - name: cloudcomp-frontend
-      image: biomasdev/cloudcomp-frontend:0.23
+      image: biomasdev/cloudcomp-frontend:0.24
       ports:
         - containerPort: 3000
           name: http-frontend
@@ -51,7 +51,7 @@ spec:
 
   initContainers:
     - name: cloudcomp-mltrain
-      image: biomasdev/cloudcomp-mltrain:0.23
+      image: biomasdev/cloudcomp-mltrain:0.24
       volumeMounts:
         - mountPath: /data
           name: project2-matheus-storage
