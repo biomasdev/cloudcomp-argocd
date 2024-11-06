@@ -5,7 +5,7 @@ metadata:
   namespace: matheusaluno
 spec:
   selector:
-    app: cloudcomp-pod-matheus
+    app: cloudcomp-recommendation
   ports:
     - protocol: TCP
       name: http-predict
