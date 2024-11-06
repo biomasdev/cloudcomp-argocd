@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudcomp-mltrain-deployment
+  namespace: matheusaluno
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloudcomp-mltrain
+  template:
+    metadata:
+      labels:
+        app: cloudcomp-mltrain
+    spec:
+      volumes:
+        - name: project2-matheus-storage
+          persistentVolumeClaim:
+            claimName: project2-pv-matheusaluno-claim
+      containers:
+        - name: cloudcomp-mltrain
+          image: biomasdev/cloudcomp-mltrain:0.24
+          volumeMounts:
+            - mountPath: /data
+              name: project2-matheus-storage

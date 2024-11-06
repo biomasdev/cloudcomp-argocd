@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudcomp-recommendation-deployment
+  namespace: matheusaluno
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloudcomp-recommendation
+  template:
+    metadata:
+      labels:
+        app: cloudcomp-recommendation
+    spec:
+      volumes:
+        - name: project2-matheus-storage
+          persistentVolumeClaim:
+            claimName: project2-pv-matheusaluno-claim
+      containers:
+        - name: cloudcomp-recommendation
+          image: biomasdev/cloudcomp-recommendation:0.24
+          ports:
+            - containerPort: 5000
+              name: http-predict
+          volumeMounts:
+            - mountPath: /data
+              name: project2-matheus-storage
+          env:
+            - name: REACT_APP_FRONTEND_PORT
+              value: "30242"

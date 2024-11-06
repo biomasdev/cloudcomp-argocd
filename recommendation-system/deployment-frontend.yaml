@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudcomp-frontend-deployment
+  namespace: matheusaluno
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloudcomp-frontend
+  template:
+    metadata:
+      labels:
+        app: cloudcomp-frontend
+    spec:
+      containers:
+        - name: cloudcomp-frontend
+          image: biomasdev/cloudcomp-frontend:0.24
+          ports:
+            - containerPort: 3000
+              name: http-frontend
+          env:
+            - name: REACT_APP_RECOMMENDATION_PORT
+              value: "30241"
