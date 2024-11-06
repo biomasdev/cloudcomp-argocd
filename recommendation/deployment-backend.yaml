@@ -43,7 +43,7 @@ spec:
               mountPath: /etc/git-ssh
 
         - name: cloudcomp-mltrain
-          image: biomasdev/cloudcomp-mltrain:0.24
+          image: biomasdev/cloudcomp-mltrain:0.25
           volumeMounts:
             - mountPath: /data
               name: project2-matheus-storage
