@@ -53,7 +53,7 @@ spec:
           image: biomasdev/cloudcomp-recommendation:0.24
           ports:
             - containerPort: 5000
-              name: http-recommendation
+              name: http-predict
           volumeMounts:
             - mountPath: /data
               name: project2-matheus-storage
