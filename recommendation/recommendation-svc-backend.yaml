@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: recommendation-service-backend
+  namespace: matheusaluno
+spec:
+  selector:
+    app: cloudcomp-pod-matheus
+  ports:
+    - protocol: TCP
+      name: http-recommendation
+      port: 5000
+      targetPort: 5000
+      nodePort: 30241
+  type: NodePort
