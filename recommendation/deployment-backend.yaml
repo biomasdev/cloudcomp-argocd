@@ -17,6 +17,31 @@ spec:
         - name: project2-matheus-storage
           persistentVolumeClaim:
             claimName: project2-pv-matheusaluno-claim
+      initContainers:
+        - name: sync-files
+          image: alpine/git
+          command:
+            - sh
+            - -c
+            - |
+              mkdir -p ~/.ssh
+              cp /etc/git-ssh/ssh-privatekey ~/.ssh/id_rsa
+              chmod 600 ~/.ssh/id_rsa
+              ssh-keyscan github.com >> ~/.ssh/known_hosts
+              git clone git@github.com:biomasdev/cloudcomp-argocd.git /tmp/repo
+              cp /tmp/repo/recommendation/spotify_dataset.csv /data/spotify_dataset.csv
+          volumeMounts:
+            - mountPath: /data
+              name: project2-matheus-storage
+            - name: git-ssh
+              mountPath: /etc/git-ssh
+
+        - name: cloudcomp-mltrain
+          image: biomasdev/cloudcomp-mltrain:0.24
+          volumeMounts:
+            - mountPath: /data
+              name: project2-matheus-storage
+
       containers:
         - name: cloudcomp-recommendation
           image: biomasdev/cloudcomp-recommendation:0.24
@@ -29,3 +54,10 @@ spec:
           env:
             - name: REACT_APP_FRONTEND_PORT
               value: "30242"
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "500m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
