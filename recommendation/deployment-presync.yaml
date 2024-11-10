@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  generateName: PreSync-Files
+  generateName: PreSyncFiles
   namespace: matheusaluno
   annotations:
     argocd.argoproj.io/hook: PreSync
