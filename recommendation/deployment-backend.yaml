@@ -17,36 +17,6 @@ spec:
         - name: project2-matheus-storage
           persistentVolumeClaim:
             claimName: project2-pv-matheusaluno-claim
-        - name: git-ssh
-          secret:
-            secretName: git-ssh-key
-            items:
-              - key: ssh-privatekey
-                path: ssh-privatekey
-      initContainers:
-        - name: sync-files
-          image: alpine/git
-          command:
-            - sh
-            - -c
-            - |
-              mkdir -p ~/.ssh
-              cp /etc/git-ssh/ssh-privatekey ~/.ssh/id_rsa
-              chmod 600 ~/.ssh/id_rsa
-              ssh-keyscan github.com >> ~/.ssh/known_hosts
-              git clone git@github.com:biomasdev/cloudcomp-argocd.git /tmp/repo
-              cp /tmp/repo/recommendation/spotify_dataset.csv /data/spotify_dataset.csv
-          volumeMounts:
-            - mountPath: /data
-              name: project2-matheus-storage
-            - name: git-ssh
-              mountPath: /etc/git-ssh
-
-        - name: cloudcomp-mltrain
-          image: biomasdev/cloudcomp-mltrain:0.28
-          volumeMounts:
-            - mountPath: /data
-              name: project2-matheus-storage
 
       containers:
         - name: cloudcomp-recommendation
