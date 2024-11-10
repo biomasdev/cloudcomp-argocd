@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: cloudcomp-frontend
-          image: biomasdev/cloudcomp-frontend:0.29
+          image: biomasdev/cloudcomp-frontend:0.28
           ports:
             - containerPort: 3000
               name: http-frontend
