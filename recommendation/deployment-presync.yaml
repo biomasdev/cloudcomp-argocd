@@ -4,6 +4,8 @@ kind: PersistentVolumeClaim
 metadata:
   name: project2-pv-matheusaluno-claim
   namespace: matheusaluno
+  annotations:
+    argocd.argoproj.io/hook: PreSync
   labels:
     type: local
 spec:
@@ -40,7 +42,7 @@ spec:
             items:
               - key: ssh-privatekey
                 path: ssh-privatekey
-      containers:
+      initContainers:
         - name: sync-files
           image: alpine/git
           command:
@@ -58,7 +60,7 @@ spec:
               name: project2-matheus-storage
             - name: git-ssh
               mountPath: /etc/git-ssh
-
+      containers:
         - name: cloudcomp-mltrain
           image: biomasdev/cloudcomp-mltrain:0.28
           volumeMounts:
