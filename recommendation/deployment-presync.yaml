@@ -16,7 +16,7 @@ spec:
       volumes:
         - name: project2-matheus-storage
           persistentVolumeClaim:
-            claimName: project2-pv-matheusaluno-claim-presync
+            claimName: project2-pv-matheusaluno-claim
         - name: git-ssh
           secret:
             secretName: git-ssh-key
