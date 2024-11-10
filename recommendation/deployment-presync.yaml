@@ -36,7 +36,7 @@ spec:
               chmod 600 ~/.ssh/id_rsa
               ssh-keyscan github.com >> ~/.ssh/known_hosts
               git clone git@github.com:biomasdev/cloudcomp-argocd.git /tmp/repo
-              cp /tmp/repo/recommendation/spotify_dataset.csv /data/spotify_dataset.csv
+              cp /tmp/repo/recommendation/dataset/spotify_dataset.csv /data/spotify_dataset.csv
           volumeMounts:
             - mountPath: /data
               name: project2-matheus-storage
