@@ -43,14 +43,14 @@ spec:
               mountPath: /etc/git-ssh
 
         - name: cloudcomp-mltrain
-          image: biomasdev/cloudcomp-mltrain:0.29
+          image: biomasdev/cloudcomp-mltrain:0.28
           volumeMounts:
             - mountPath: /data
               name: project2-matheus-storage
 
       containers:
         - name: cloudcomp-recommendation
-          image: biomasdev/cloudcomp-recommendation:0.29
+          image: biomasdev/cloudcomp-recommendation:0.28
           ports:
             - containerPort: 5000
               name: http-predict
