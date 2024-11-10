@@ -12,6 +12,7 @@ spec:
       labels:
         app: cloudcomp-recommendation-presync
     spec:
+      restartPolicy: OnFailure
       volumes:
         - name: project2-matheus-storage
           persistentVolumeClaim:
