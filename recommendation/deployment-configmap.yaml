@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: csv-configmap
 data:
-  csv-last-modified: "2023-11-10T19:43:00Z"
+  csv-last-modified: "2023-11-10T19:46:00Z"
