@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: cloudcomp-recommendation-deployment
-  namespace: matheusaluno
+  namespace: matheusalves
 spec:
   replicas: 1
   selector:
@@ -16,7 +16,7 @@ spec:
       volumes:
         - name: project2-matheus-storage
           persistentVolumeClaim:
-            claimName: project2-pv2-matheusaluno-claim
+            claimName: project2-pv2-matheusalves-claim
 
       containers:
         - name: cloudcomp-recommendation
