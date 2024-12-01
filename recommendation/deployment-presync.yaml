@@ -50,8 +50,6 @@ spec:
               name: project2-matheus-storage
           resources:
             requests:
-              memory: "1024Mi"
-              cpu: "500m"
+              memory: "1.5Gi"
             limits:
-              memory: "1024Mi"
-              cpu: "500m"
+              memory: "1.5Gi"
