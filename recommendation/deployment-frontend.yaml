@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: cloudcomp-frontend-deployment
-  namespace: matheusalves
+  namespace: matheusaluno
 spec:
   replicas: 1
   selector:
