@@ -2,7 +2,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   generateName: presyncfiles
-  namespace: matheusaluno
+  namespace: matheusalves
   annotations:
     argocd.argoproj.io/hook: PreSync
     argocd.argoproj.io/hook-delete-policy: HookSucceeded
@@ -17,7 +17,7 @@ spec:
       volumes:
         - name: project2-matheus-storage
           persistentVolumeClaim:
-            claimName: project2-pv-matheusaluno-claim
+            claimName: project2-pv-matheusalves-claim
         - name: git-ssh
           secret:
             secretName: git-ssh-key

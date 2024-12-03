@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: project2-pv-matheusaluno-claim
-  namespace: matheusaluno
+  name: project2-pv-matheusalves-claim
+  namespace: matheusalves
   annotations:
     argocd.argoproj.io/hook: PreSync
     argocd.argoproj.io/hook-delete-policy: HookFailed
@@ -10,8 +10,8 @@ metadata:
   labels:
     type: local
 spec:
-  storageClassName: "default-storage-class"
-  volumeName: project2-pv2-matheusaluno
+  storageClassName: "default-storage-class-matheusalves"
+  volumeName: project2-pv2-matheusalves
   accessModes:
     - ReadWriteMany
   resources:
