@@ -22,3 +22,10 @@ spec:
           env:
             - name: REACT_APP_RECOMMENDATION_PORT
               value: "30241"
+          resources:
+            requests:
+              memory: "500Mi"
+              cpu: "500m"
+            limits:
+              memory: "500Mi"
+              cpu: "500m"
