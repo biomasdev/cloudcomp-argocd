@@ -25,7 +25,7 @@ spec:
             - sh
             - -c
             - |
-              git clone git@github.com:biomasdev/cloudcomp-argocd.git /tmp/repo
+              git clone https://github.com/biomasdev/cloudcomp-argocd.git /tmp/repo
               cp /tmp/repo/recommendation/dataset/spotify_dataset.csv /data/spotify_dataset.csv
           volumeMounts:
             - mountPath: /data
