@@ -11,5 +11,5 @@ spec:
       name: http-predict
       port: 5000
       targetPort: 5000
-      nodePort: 30241
+      nodePort: 52052
   type: NodePort
