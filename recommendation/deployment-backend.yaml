@@ -20,7 +20,7 @@ spec:
 
       containers:
         - name: cloudcomp-recommendation
-          image: biomasdev/cloudcomp-recommendation:0.33
+          image: biomasdev/cloudcomp-recommendation:0.34
           ports:
             - containerPort: 5000
               name: http-predict
