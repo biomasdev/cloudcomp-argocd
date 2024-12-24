@@ -18,12 +18,6 @@ spec:
         - name: project2-matheus-storage
           persistentVolumeClaim:
             claimName: project2-pv-matheusalves-claim
-        - name: git-ssh
-          secret:
-            secretName: git-ssh-key
-            items:
-              - key: ssh-privatekey
-                path: ssh-privatekey
       initContainers:
         - name: sync-files
           image: alpine/git
@@ -36,8 +30,6 @@ spec:
           volumeMounts:
             - mountPath: /data
               name: project2-matheus-storage
-            - name: git-ssh
-              mountPath: /etc/git-ssh
       containers:
         - name: cloudcomp-mltrain
           image: biomasdev/cloudcomp-mltrain:0.30
