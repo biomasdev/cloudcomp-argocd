@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: cloudcomp-frontend
-          image: biomasdev/cloudcomp-frontend:0.28
+          image: biomasdev/cloudcomp-frontend:0.29
           ports:
             - containerPort: 3000
               name: http-frontend
@@ -29,3 +29,10 @@ spec:
             limits:
               memory: "500Mi"
               cpu: "500m"
+          resources:
+            requests:
+              memory: "1G"
+              cpu: "1"
+            limits:
+              memory: "1G"
+              cpu: "1"
