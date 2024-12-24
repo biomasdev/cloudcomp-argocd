@@ -31,10 +31,6 @@ spec:
             - sh
             - -c
             - |
-              mkdir -p ~/.ssh
-              cp /etc/git-ssh/ssh-privatekey ~/.ssh/id_rsa
-              chmod 600 ~/.ssh/id_rsa
-              ssh-keyscan github.com >> ~/.ssh/known_hosts
               git clone git@github.com:biomasdev/cloudcomp-argocd.git /tmp/repo
               cp /tmp/repo/recommendation/dataset/spotify_dataset.csv /data/spotify_dataset.csv
           volumeMounts:
@@ -44,7 +40,7 @@ spec:
               mountPath: /etc/git-ssh
       containers:
         - name: cloudcomp-mltrain
-          image: biomasdev/cloudcomp-mltrain:0.29
+          image: biomasdev/cloudcomp-mltrain:0.30
           volumeMounts:
             - mountPath: /data
               name: project2-matheus-storage
