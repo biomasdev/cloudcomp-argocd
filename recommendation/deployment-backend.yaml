@@ -20,7 +20,7 @@ spec:
 
       containers:
         - name: cloudcomp-recommendation
-          image: biomasdev/cloudcomp-recommendation:0.45
+          image: biomasdev/cloudcomp-recommendation:0.46
           ports:
             - containerPort: 5000
               name: http-predict
@@ -32,8 +32,8 @@ spec:
               value: "30242"
           resources:
             requests:
-              memory: "1524Mi"
+              memory: "1024Mi"
               cpu: "500m"
             limits:
-              memory: "1524Mi"
+              memory: "1024Mi"
               cpu: "500m"
