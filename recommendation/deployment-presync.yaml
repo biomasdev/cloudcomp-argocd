@@ -32,7 +32,7 @@ spec:
               name: project2-matheus-storage
       containers:
         - name: cloudcomp-mltrain
-          image: biomasdev/cloudcomp-mltrain:0.53
+          image: biomasdev/cloudcomp-mltrain:0.55
           volumeMounts:
             - mountPath: /data
               name: project2-matheus-storage
